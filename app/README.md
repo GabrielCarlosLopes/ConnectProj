@@ -1,4 +1,4 @@
-# app
+# connect_proj
 
 A new Flutter project.
 
