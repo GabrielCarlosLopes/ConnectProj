@@ -12,9 +12,10 @@ Projeto desenvolvido para o PDS, do curso de  💻  Análise de Desenvolvimento 
 
 Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
 
-    -git clone
-
-    -flutter pub get
+    - git clone
+    - cd app
+    - flutter pub get
+    - flutter run
 
 ### 📲  APK
 
