@@ -77,49 +77,53 @@ class _ChatTabState extends State<ChatTab> {
               child: ListView.builder(
                 itemCount: widget.homeController.chatPeoples.length,
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0),
-                    ),
-                    tileColor: greyLight,
-                    title: Text(
-                      widget.homeController.chatPeoples[index].name!,
-                      style: GoogleFonts.nunitoSans(
-                        textStyle: TextStyle(
-                          color: grey,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ListTile(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),
                       ),
-                    ),
-                    leading: IconButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => UserDetails(
-                              userUid:
-                                  widget.homeController.chatPeoples[index].uid!,
-                            ),
+                      tileColor: greyLight,
+                      title: Text(
+                        widget.homeController.chatPeoples[index].name!,
+                        style: GoogleFonts.nunitoSans(
+                          textStyle: TextStyle(
+                            color: grey,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
                           ),
-                        );
-                      },
-                      icon: CircleAvatar(
-                        backgroundImage: NetworkImage(
-                          widget.homeController.chatPeoples[index].perfilPhoto!,
                         ),
                       ),
-                    ),
-                    trailing: Icon(
-                      Icons.arrow_forward_ios,
-                      color: grey,
-                    ),
-                    onTap: () => _handlePressed(
-                      types.User(
-                        id: widget.homeController.chatPeoples[index].uid!,
+                      leading: IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => UserDetails(
+                                userUid: widget
+                                    .homeController.chatPeoples[index].uid!,
+                              ),
+                            ),
+                          );
+                        },
+                        icon: CircleAvatar(
+                          backgroundImage: NetworkImage(
+                            widget
+                                .homeController.chatPeoples[index].perfilPhoto!,
+                          ),
+                        ),
                       ),
-                      context,
-                      widget.homeController.chatPeoples[index],
+                      trailing: Icon(
+                        Icons.arrow_forward_ios,
+                        color: grey,
+                      ),
+                      onTap: () => _handlePressed(
+                        types.User(
+                          id: widget.homeController.chatPeoples[index].uid!,
+                        ),
+                        context,
+                        widget.homeController.chatPeoples[index],
+                      ),
                     ),
                   );
                 },

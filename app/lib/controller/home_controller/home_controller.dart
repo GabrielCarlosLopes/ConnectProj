@@ -81,15 +81,18 @@ abstract class _HomeControllerBase with Store {
     });
 
     if (user!.likes!.isNotEmpty) {
-      user!.likes!.forEach((uidLike) {
-        peoplesList.forEach((element) {
-          element.likes!.forEach((uidLike) {
-            if (uidLike == user!.uid) {
+      peoplesList.forEach((element) {
+        if (element.likes!.isNotEmpty) {
+          element.likes!.forEach((uidLikeElement) {
+            if (uidLikeElement == user!.uid) {
               chatPeoples.add(element);
             }
           });
-        });
-        peoplesList.removeWhere((element) => element.uid == uidLike);
+        }
+      });
+
+      user!.likes!.forEach((element) {
+        peoplesList.removeWhere((elementList) => elementList.uid == element);
       });
 
       peoplesList.forEach(

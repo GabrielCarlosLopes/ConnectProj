@@ -85,12 +85,15 @@ class _ConnectionCardState extends State<ConnectionCard> {
                               children: [
                                 Row(
                                   children: [
-                                    Text(
-                                      widget.user.name! + ', ',
-                                      style: TextStyle(
-                                        color: white,
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.bold,
+                                    Flexible(
+                                      child: Text(
+                                        widget.user.name! + ', ',
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          color: white,
+                                          fontSize: 24,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
                                     Text(
